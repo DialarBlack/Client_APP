@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('description');
+            $table->text('message');
+            $table->string('type');
+            $table->unsignedBigInteger('loggable_id');
+            $table->string('loggable_type');
             $table->timestamps();
         });
     }
